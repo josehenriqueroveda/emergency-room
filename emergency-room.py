@@ -4,24 +4,38 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 
+logo = """
+  ______                                                  _____                       
+ |  ____|                                                |  __ \                      
+ | |__   _ __ ___   ___ _ __ __ _  ___ _ __   ___ _   _  | |__) |___   ___  _ __ ___  
+ |  __| | '_ ` _ \ / _ \ '__/ _` |/ _ \ '_ \ / __| | | | |  _  // _ \ / _ \| '_ ` _ \ 
+ | |____| | | | | |  __/ | | (_| |  __/ | | | (__| |_| | | | \ \ (_) | (_) | | | | | |
+ |______|_| |_| |_|\___|_|  \__, |\___|_| |_|\___|\__, | |_|  \_\___/ \___/|_| |_| |_|
+                             __/ |                 __/ |                              
+                            |___/                 |___/                            
+"""
+
+print(logo)
+
+
 class EmergencyRoom:
     # Time in minutes
     # Simulation run time and warm-up (warm-up is time before audit results are collected)
-    simulation_time = 7200
-    warm_up = 1440
+    simulation_time = int(input('Enter how many days for the simulation: '))*1440
+    warm_up = int(simulation_time / 5)
 
     # Average time between patients arriving
-    inter_arrival_time = 8
+    inter_arrival_time = int(input('Average patient arrival time in minutes: '))
 
     # Number of doctors in ER
-    n_doctors = 3
+    n_doctors = int(input('Number of doctors: '))
 
     # Time between audits
     audit_interval = 100
 
     # Average and standard deviation of time doctors spends with patients in ER
-    appointment_mean = 15
-    appointment_std = 7
+    appointment_mean = int(input('Average time in medical consultation (minutes): '))
+    appointment_std = int(input('Standard deviation in time in medical consultation (minutes): '))
 
     # Lists to store audit results
     audit_time = []
